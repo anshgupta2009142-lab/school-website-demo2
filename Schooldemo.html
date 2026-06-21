@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delhi Public School - Excellence in Education</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+        
+        /* NAVBAR */
+        nav { position: fixed; top: 0; width: 100%; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 100; padding: 15px 0; }
+        nav .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        nav .logo { font-size: 22px; font-weight: bold; color: #c41e3a; }
+        nav .nav-links { display: flex; gap: 30px; }
+        nav a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: #c41e3a; }
+        
+        /* Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* HERO */
+        .hero { background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%); color: white; padding: 120px 20px 80px; text-align: center; margin-top: 60px; }
+        .hero h1 { font-size: 48px; margin-bottom: 15px; }
+        .hero p { font-size: 18px; opacity: 0.9; margin-bottom: 30px; }
+        .btn { display: inline-block; padding: 12px 30px; background: #c41e3a; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: all 0.3s; border: 2px solid #c41e3a; }
+        .btn:hover { background: white; color: #c41e3a; }
+        .btn-secondary { background: white; color: #c41e3a; }
+        .btn-secondary:hover { background: #c41e3a; color: white; }
+        
+        /* ABOUT SECTION */
+        .about { padding: 60px 20px; background: #f9f9f9; }
+        .about h2 { font-size: 36px; color: #c41e3a; margin-bottom: 20px; text-align: center; }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .about-text { }
+        .about-text p { margin-bottom: 15px; line-height: 1.8; color: #555; }
+        .about-img { background: #ddd; height: 300px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 80px; }
+        
+        /* FEATURES */
+        .features { padding: 60px 20px; }
+        .features h2 { font-size: 36px; color: #c41e3a; margin-bottom: 40px; text-align: center; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .feature-card { padding: 30px; border: 2px solid #eee; border-radius: 10px; text-align: center; transition: all 0.3s; }
+        .feature-card:hover { border-color: #c41e3a; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .feature-icon { font-size: 50px; margin-bottom: 15px; }
+        .feature-card h3 { color: #c41e3a; margin-bottom: 10px; }
+        .feature-card p { color: #666; font-size: 14px; }
+        
+        /* ACADEMICS */
+        .academics { padding: 60px 20px; background: #f9f9f9; }
+        .academics h2 { font-size: 36px; color: #c41e3a; margin-bottom: 40px; text-align: center; }
+        .class-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .class-card { background: white; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .class-card h3 { color: #c41e3a; margin-bottom: 10px; }
+        
+        /* FACILITIES */
+        .facilities { padding: 60px 20px; }
+        .facilities h2 { font-size: 36px; color: #c41e3a; margin-bottom: 40px; text-align: center; }
+        .facility-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; }
+        .facility-item { text-align: center; padding: 20px; }
+        .facility-item h3 { color: #c41e3a; margin-top: 10px; }
+        
+        /* TESTIMONIALS */
+        .testimonials { padding: 60px 20px; background: #f9f9f9; }
+        .testimonials h2 { font-size: 36px; color: #c41e3a; margin-bottom: 40px; text-align: center; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .testimonial-card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .testimonial-card .stars { color: #ffc107; margin-bottom: 10px; }
+        .testimonial-text { font-style: italic; color: #666; margin-bottom: 15px; }
+        .testimonial-name { font-weight: bold; color: #c41e3a; }
+        
+        /* ADMISSIONS */
+        .admissions { padding: 60px 20px; background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%); color: white; text-align: center; }
+        .admissions h2 { font-size: 36px; margin-bottom: 20px; }
+        .admissions p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; }
+        
+        /* CONTACT */
+        .contact { padding: 60px 20px; background: #f9f9f9; }
+        .contact h2 { font-size: 36px; color: #c41e3a; margin-bottom: 40px; text-align: center; }
+        .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .contact-info h3 { color: #c41e3a; margin-bottom: 20px; }
+        .contact-info p { margin-bottom: 15px; }
+        .contact-info strong { color: #c41e3a; }
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea { padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-family: inherit; }
+        input:focus, textarea:focus { outline: none; border-color: #c41e3a; }
+        .submit-btn { padding: 12px; background: #c41e3a; color: white; border: none; font-weight: bold; cursor: pointer; border-radius: 5px; }
+        .submit-btn:hover { background: #8b0000; }
+        
+        /* FOOTER */
+        footer { background: #333; color: white; padding: 40px 20px; text-align: center; }
+        footer a { color: #c41e3a; text-decoration: none; }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav .nav-links { gap: 15px; font-size: 14px; }
+            .hero h1 { font-size: 32px; }
+            .about-content { grid-template-columns: 1fr; }
+            .contact-content { grid-template-columns: 1fr; }
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="container">
+        <div class="logo">📚 Delhi Public School</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#academics">Academics</a>
+            <a href="#facilities">Facilities</a>
+            <a href="#admissions">Admissions</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="container">
+        <h1>Excellence in Education</h1>
+        <p>Nurturing Future Leaders Since 1985</p>
+        <a href="#admissions" class="btn">Apply Now</a>
+        <a href="#about" class="btn btn-secondary" style="margin-left: 15px;">Learn More</a>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+    <div class="container">
+        <h2>About Our School</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p><strong>Delhi Public School</strong> is committed to providing world-class education that develops academically excellent, ethically grounded, and socially responsible citizens.</p>
+                <p>With over 35 years of excellence, we have established ourselves as a leading educational institution in Delhi. Our dedicated faculty, modern infrastructure, and student-centric approach ensure that every child reaches their full potential.</p>
+                <p><strong>Our Mission:</strong> To impart quality education that combines academic rigor with holistic development.</p>
+                <p><strong>Our Vision:</strong> To create a learning environment where every student can pursue excellence and develop into responsible global citizens.</p>
+            </div>
+            <div class="about-img">📖</div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="container">
+        <h2>Why Choose Us?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">👨‍🏫</div>
+                <h3>Expert Faculty</h3>
+                <p>Highly qualified and experienced teachers dedicated to student success</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏫</div>
+                <h3>Modern Infrastructure</h3>
+                <p>State-of-the-art classrooms, labs, and learning facilities</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Global Curriculum</h3>
+                <p>International standards with local values and culture</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎭</div>
+                <h3>Holistic Development</h3>
+                <p>Sports, arts, and co-curricular activities for all-round growth</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ACADEMICS -->
+<section id="academics" class="academics">
+    <div class="container">
+        <h2>Academic Program</h2>
+        <div class="class-grid">
+            <div class="class-card">
+                <h3>Primary (I-V)</h3>
+                <p>Foundation building with focus on language, math, and science</p>
+            </div>
+            <div class="class-card">
+                <h3>Middle School (VI-VIII)</h3>
+                <p>Comprehensive curriculum with lab work and projects</p>
+            </div>
+            <div class="class-card">
+                <h3>Secondary (IX-X)</h3>
+                <p>CBSE board exam preparation with specialized coaching</p>
+            </div>
+            <div class="class-card">
+                <h3>Senior Secondary (XI-XII)</h3>
+                <p>Science, Commerce, and Humanities streams available</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FACILITIES -->
+<section id="facilities" class="facilities">
+    <div class="container">
+        <h2>School Facilities</h2>
+        <div class="facility-grid">
+            <div class="facility-item">
+                <div style="font-size: 50px;">🔬</div>
+                <h3>Science Labs</h3>
+                <p>Fully equipped with modern instruments</p>
+            </div>
+            <div class="facility-item">
+                <div style="font-size: 50px;">🖥️</div>
+                <h3>Computer Lab</h3>
+                <p>Latest technology and software</p>
+            </div>
+            <div class="facility-item">
+                <div style="font-size: 50px;">📚</div>
+                <h3>Library</h3>
+                <p>10,000+ books and digital resources</p>
+            </div>
+            <div class="facility-item">
+                <div style="font-size: 50px;">🏀</div>
+                <h3>Sports Complex</h3>
+                <p>Indoor and outdoor sports facilities</p>
+            </div>
+            <div class="facility-item">
+                <div style="font-size: 50px;">🎨</div>
+                <h3>Art Studio</h3>
+                <p>Creative space for artistic expression</p>
+            </div>
+            <div class="facility-item">
+                <div style="font-size: 50px;">🎵</div>
+                <h3>Music Room</h3>
+                <p>Professional music training facilities</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+    <div class="container">
+        <h2>What Parents Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Excellent school with dedicated teachers and great infrastructure. My child has shown remarkable improvement in academics and personality."</p>
+                <p class="testimonial-name">- Rajesh Kumar, Parent</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"DPS provides a perfect balance between academics and extracurricular activities. The faculty is very supportive and caring."</p>
+                <p class="testimonial-name">- Priya Singh, Parent</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Outstanding school! My daughter's confidence and knowledge have grown tremendously. Highly recommended for quality education."</p>
+                <p class="testimonial-name">- Amit Patel, Parent</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ADMISSIONS -->
+<section id="admissions" class="admissions">
+    <div class="container">
+        <h2>Ready to Join Us?</h2>
+        <p>Admissions open for all classes | Merit-based scholarships available</p>
+        <a href="#contact" class="btn">Download Prospectus</a>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <p><strong>📍 Address:</strong><br>Delhi Public School<br>New Delhi, Delhi 110016</p>
+                <p><strong>📞 Phone:</strong><br>+91-11-XXXX-XXXX<br>+91-11-XXXX-XXXX</p>
+                <p><strong>📧 Email:</strong><br>info@dps.edu.in<br>admissions@dps.edu.in</p>
+                <p><strong>⏰ Office Hours:</strong><br>Monday - Friday: 8:00 AM - 4:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+            </div>
+            <form onsubmit="handleSubmit(event)">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Your Phone" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Delhi Public School. All rights reserved.</p>
+        <p style="margin-top: 10px;">Excellence in Education | Nurturing Future Leaders</p>
+    </div>
+</footer>
+
+<script>
+function handleSubmit(event) {
+    event.preventDefault();
+    alert('Thank you! We will contact you soon with admission details.');
+    event.target.reset();
+}
+</script>
+
+</body>
+</html>
